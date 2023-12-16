@@ -26,7 +26,6 @@ const ListContainer: React.FC = () => {
   const [list, setList] = useState<ListItem[]>([]);
 
   useEffect(() => {
-    // 100個のダミーデータを生成
     const items = Array.from({ length: 100 }, (_, index) => ({
       id: `card${index + 1}`,
       title: `タイトル${index + 1}`,
@@ -34,7 +33,7 @@ const ListContainer: React.FC = () => {
     }));
     setList(items);
 
-    const handleHashChange = () => {
+    const scrollToCard = () => {
       const hash = window.location.hash;
       if (hash) {
         const id = hash.replace('#', '');
@@ -45,10 +44,11 @@ const ListContainer: React.FC = () => {
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
+    scrollToCard(); // コンポーネントのマウント時にスクロール
+    window.addEventListener('hashchange', scrollToCard); // ハッシュ変更時にスクロール
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('hashchange', scrollToCard);
     };
   }, []);
 
