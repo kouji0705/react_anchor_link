@@ -3,10 +3,7 @@ import ListContainer from './components/ListContainer'
 
 function App() {
   return (
-    <div>
-      qqqq
     <ListContainer />
-    </div>
   );
 }
 
