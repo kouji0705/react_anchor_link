@@ -1,5 +1,5 @@
 import React from 'react';
-import ListContainer from './components/ListContainer'
+import { ListContainer } from './components/ListContainer'
 
 function App() {
   return (
